@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es-CU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CubaHostPro - Servicios profesionales de hosting y creación de páginas web exclusivas para cubanos. Planes desde 250 CUP/mes.">
+    <meta name="keywords" content="hosting Cuba, página web Cuba, diseño web Cuba, comercio electrónico Cuba">
+    <meta name="author" content="CubaHostPro">
+    <meta name="geo.region" content="CU">
+    <meta name="geo.placename" content="Cuba">
+    <meta property="og:title" content="CubaHostPro - Páginas Web para Cubanos">
+    <meta property="og:description" content="Servicios profesionales de hosting y creación de páginas web exclusivas para cubanos.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CU">
+    <title>CubaHostPro - Páginas Web Profesionales para Cubanos | Solo Firefox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #da291c;
+            --accent-color: #ffcc00;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --error-color: #dc3545;
+            --font-main: 'Montserrat', sans-serif;
+            --font-secondary: 'Roboto', sans-serif;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        /* Plans */
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .plan {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan.recommended {
+            border: 2px solid var(--accent-color);
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-bottom-left-radius: 8px;
+        }
+
+        .plan h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #002244;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: #b82219;
+        }
+
+        /* Why Us */
+        .why-us {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* How To */
+        .how-to {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .steps {
+            counter-reset: step-counter;
+            margin-top: 2rem;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--white);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            margin-right: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .contact a {
+            color: var(--accent-color);
+        }
+
+        /* Firefox Warning */
+        .firefox-only {
+            display: none;
+            background: var(--error-color);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .nav-links li {
+                margin: 0 0.5rem;
+            }
+
+            .plan {
+                padding: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .plans {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility Focus Styles */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, footer, .btn {
+                display: none !important;
+            }
+
+            body {
+                background: none;
+                color: #000;
+                font-size: 12pt;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .plan {
+                page-break-inside: avoid;
+                margin-bottom: 1cm;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .contact {
+                background: none;
+                color: #000;
+                padding: 0;
+            }
+
+            .contact h2 {
+                color: #000;
+            }
+
+            .contact a {
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="firefox-check" class="firefox-only">
+        ⚠️ Esta plataforma solo está disponible en el navegador Firefox. Por favor, utiliza Firefox para acceder a CubaHostPro.
+    </div>
+
+    <!-- Modal de Contratación -->
+    <div id="contractModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Cerrar modal">&times;</button>
+            <h2 id="modalTitle">Contratar Plan</h2>
+            <form id="contractForm">
+                <input type="hidden" id="selectedPlan" name="selectedPlan">
+                <div class="form-group">
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono (WhatsApp):</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="business">Nombre de tu negocio:</label>
+                    <input type="text" id="business" name="business" class="form-control" required aria-required="true">
+                </div>
+                <button type="submit" class="btn btn-secondary">Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Cuba<span>Host</span>Pro</h1>
+            <p class="tagline">Páginas web profesionales exclusivas para cubanos</p>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="nav-container">
+            <a href="#plans" class="skip-link">Saltar a planes</a>
+            <ul class="nav-links">
+                <li><a href="#plans">Planes</a></li>
+                <li><a href="#why-us">¿Por qué nosotros?</a></li>
+                <li><a href="#how-to">¿Cómo contratar?</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+        <section id="plans">
+            <h2 class="section-title">Nuestros Planes</h2>
+            <div class="plans">
+                <div class="plan">
+                    <h3>Plan Comerciante Local</h3>
+                    <div class="price">250 <span>CUP/mes</span></div>
+                    <p>Página especializada para ofertar productos.</p>
+                    <ul class="features">
+                        <li>Atención al cliente 12/7</li>
+                        <li>Activación en 48 horas</li>
+                        <li>Marca de agua de la empresa</li>
+                        <li>Catálogo de productos</li>
+                        <li>Diseño optimizado para móviles</li>
+                    </ul>
+                    <button class="btn contract-btn" data-plan="Comerciante Local">Contratar</button>
+                </div>
+
+                <div class="plan recommended">
+                    <div class="recommended-badge">Recomendado</div>
+                    <h3>Plan Negocio Local</h3>
+                    <div class="price">300 <span>CUP/mes</span></div>
+                    <p>Página completa para todo tipo de negocios.</p>
+                    <ul class="features">
+                        <li>Atención al cliente 12/7</li>
+                        <li>Activación en 48 horas</li>
+                        <li>Marca de agua de la empresa</li>
+                        <li>Catálogo amplio</li>
+                        <li>Diseño optimizado para móviles</li>
+                    </ul>
+                    <button class="btn btn-secondary contract-btn" data-plan="Negocio Local">Contratar</button>
+                </div>
+
+                <div class="plan">
+                    <h3>Plan Servicio Local</h3>
+                    <div class="price">250 <span>CUP/mes</span></div>
+                    <p>Página para promocionar servicios profesionales.</p>
+                    <ul class="features">
+                        <li>Atención al cliente 12/7</li>
+                        <li>Activación en 48 horas</li>
+                        <li>Marca de agua de la empresa</li>
+                        <li>Sección de servicios destacados</li>
+                        <li>Diseño optimizado para móviles</li>
+                    </ul>
+                    <button class="btn contract-btn" data-plan="Servicio Local">Contratar</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="why-us">
+            <h2 class="section-title">¿Por Qué CubaHostPro?</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <span class="benefit-icon">🔒</span>
+                    <div>
+                        <h3>Exclusivo para cubanos</h3>
+                        <p>Verificación por IP y número de teléfono cubano (+53). Servicio diseñado específicamente para las necesidades del mercado cubano.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">🦊</span>
+                    <div>
+                        <h3>Optimizado para Firefox</h3>
+                        <p>Mayor seguridad y rendimiento al estar optimizado exclusivamente para el navegador Firefox.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">⚡</span>
+                    <div>
+                        <h3>Hosting rápido y estable</h3>
+                        <p>Servidores confiables con alta disponibilidad, optimizados para las condiciones de conectividad en Cuba.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">🛠️</span>
+                    <div>
+                        <h3>Sin complicaciones técnicas</h3>
+                        <p>Todo incluido: dominio, hosting, diseño y mantenimiento. Nos encargamos de todo para que tú solo te preocupes por tu negocio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-to" class="how-to">
+            <h2 class="section-title">¿Cómo Contratar?</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Accede desde Firefox</h3>
+                    <p>Nuestra plataforma está optimizada exclusivamente para el navegador Firefox, que puedes descargar gratuitamente.</p>
+                </div>
+                <div class="step">
+                    <h3>Selecciona tu plan</h3>
+                    <p>Elige el plan que mejor se adapte a las necesidades de tu negocio. Puedes cambiar de plan en cualquier momento.</p>
+                </div>
+                <div class="step">
+                    <h3>Completa el formulario</h3>
+                    <p>Proporciona tus datos básicos y la información de tu negocio para que podamos crear tu página web personalizada.</p>
+                </div>
+                <div class="step">
+                    <h3>Realiza el pago</h3>
+                    <p>Puedes pagar en CUP mediante transferencia bancaria o efectivo en puntos autorizados.</p>
+                </div>
+                <div class="step">
+                    <h3>¡Tu página estará lista!</h3>
+                    <p>En solo 48 horas tendrás tu página web profesional activa y funcionando.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:cubabazaronline@gmail.com">cubabazaronline@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <a href="https://wa.me/5350369270">+53 50369270</a>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem;">🌐 <strong>Solo disponible en Firefox</strong></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <h2>CubaHostPro</h2>
+            <ul class="footer-links">
+                <li><a href="#plans">Planes</a></li>
+                <li><a href="#why-us">¿Por qué nosotros?</a></li>
+                <li><a href="#how-to">¿Cómo funciona?</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <p class="copyright">© 2023 CubaHostPro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Detectar si el navegador NO es Firefox
+        function isFirefox() {
+            return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        }
+        
+        if (!isFirefox()) {
+            document.getElementById('firefox-check').style.display = 'block';
+            document.body.innerHTML = document.getElementById('firefox-check').outerHTML;
+            document.body.style.padding = '20px';
+            document.body.style.backgroundColor = '#f8f9fa';
+            document.title = "Por favor usa Firefox - CubaHostPro";
+        }
+
+        // Lógica del Modal y Formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('contractModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const selectedPlanInput = document.getElementById('selectedPlan');
+            const contractForm = document.getElementById('contractForm');
+            const contractBtns = document.querySelectorAll('.contract-btn');
+            const closeModal = document.querySelector('.close-modal');
+
+            // Abrir modal al hacer clic en cualquier botón de contratar
+            contractBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const planName = this.getAttribute('data-plan');
+                    modalTitle.textContent = `Contratar Plan ${planName}`;
+                    selectedPlanInput.value = planName;
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+                });
+            });
+
+            // Cerrar modal
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // Cerrar modal al hacer clic fuera del contenido
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Enviar formulario
+            contractForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    plan: selectedPlanInput.value,
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    business: document.getElementById('business').value,
+                    date: new Date().toLocaleString('es-CU')
+                };
+
+                // Crear mensaje para WhatsApp
+                const whatsappMessage = `¡Nueva solicitud de CubaHostPro!%0A%0A` +
+                    `*Plan:* ${formData.plan}%0A` +
+                    `*Nombre:* ${formData.name}%0A` +
+                    `*Negocio:* ${formData.business}%0A` +
+                    `*Teléfono:* ${formData.phone}%0A` +
+                    `*Email:* ${formData.email}%0A` +
+                    `*Fecha:* ${formData.date}`;
+
+                // Abrir WhatsApp con el mensaje predefinido
+                window.open(`https://wa.me/5350369270?text=${whatsappMessage}`, '_blank');
+                
+                // Cerrar el modal
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // Mostrar mensaje de éxito (podrías implementar un toast notification)
+                alert('¡Gracias por tu solicitud! Serás redirigido a WhatsApp para completar el proceso.');
+                
+                // Resetear el formulario
+                contractForm.reset();
+            });
+
+            // Mejora de accesibilidad: permitir cerrar modal con ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Mejora de accesibilidad: focus trapping en el modal
+            modal.addEventListener('keydown', function(e) {
+                if (e.key !== 'Tab') return;
+
+                const focusableElements = modal.querySelectorAll('button, input, textarea, select, [href]');
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+
+        // Mejora de SEO: Cambiar título cuando la pestaña no está activa
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden') {
+                document.title = '¡No te vayas! Tu página web te espera - CubaHostPro';
+            } else {
+                document.title = 'CubaHostPro - Páginas Web Profesionales para Cubanos | Solo Firefox';
+            }
+        });
+
+        // Mejora de rendimiento: Cargar recursos críticos primero
+        if ('loading' in HTMLImageElement.prototype) {
+            // El navegador soporta lazy loading nativo
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        }
+    </script>
+
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CubaHostPro",
+        "image": "",
+        "@id": "",
+        "url": "",
+        "telephone": "+5350369270",
+        "priceRange": "250-300 CUP",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cuba",
+            "addressCountry": "CU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 21.521757,
+            "longitude": -77.781167
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "23:59"
+        },
+        "sameAs": []
+    }
+    </script>
+</body>
+</html>
